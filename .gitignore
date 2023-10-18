@@ -79,3 +79,7 @@ layout二级路由配置,新建article,home,publish文件夹，在router配置
     const selectedkey = location.pathname
     把selectedkey添加到<Menu />
 Layout展示个人信息，用户信息应该放到哪里？放到redux里面，因为用户信息是全局的，任何地方都可以使用
+Layout退出登录实现
+Layout处理token失效。与后端配合，通常token失效后再去请求接口，接口会返回401，前端拦截到401后，跳转到登录页
+在响应拦截器监控401状态码，如果是401，清除失效token,跳转到登录页
+使用Home-Echarts基础图表 安装npm install echarts,封装echarts组件,方便复用

@@ -4,7 +4,7 @@
 // 2.超时事件
 // 3.请求拦截器/响应拦截器
 import { getToken, removeToken } from "./token"
-// import router from "@/router"
+import router from "@/router"
 import axios from 'axios'
 
 const request = axios.create({
@@ -39,8 +39,9 @@ request.interceptors.response.use((response) => {
     // 监控401 token失效
     console.dir(error)
     if (error.response.status === 401) {
-        // removeToken()
-        // router.navigate('/login')
+        removeToken()
+        router.navigate('/login')
+        // reload() 页面报错，可以用这个方法可把当前文档从浏览器的缓存中读取出来，并重新发送请求。
         window.location.reload()
     }
     return Promise.reject(error)

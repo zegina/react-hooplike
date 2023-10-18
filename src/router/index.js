@@ -14,11 +14,12 @@ import Article from "@/pages/Article";
 
 const router = createBrowserRouter([
     // { path: "/", element: <Layout /> },
+    // 设置路由的index:true的作用是将该路由设为默认路由
     {
         path: "/",
         element: <AuthRoute> <Layout /></AuthRoute>,
         children: [
-            { path: "home", element: <Home /> },
+            { index:true, element: <Home /> },
             { path: "article", element: <Article /> },
             { path: "publish", element: <Publish /> }
         ]

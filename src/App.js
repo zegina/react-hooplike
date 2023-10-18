@@ -1,10 +1,10 @@
-import { button } from 'antd';
+import { Button } from 'antd';
  
 function App() {
   return (
     <div>
       <h1>React App</h1>
-      <button type="primary">Button</button>
+      <Button type="primary">Button</Button>
     </div>
   );
 }

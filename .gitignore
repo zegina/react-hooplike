@@ -67,3 +67,15 @@ git push -u origin main
 13.layout页面
 14.安装npm install normalize.css 样式初始化 比如在入口文件index.js中引入import 'normalize.css'
 layout二级路由配置,新建article,home,publish文件夹，在router配置
+点击左侧菜单，对应的页面展示，跳转路由，const onMenuClick = (route) => {
+        console.log('菜单被点击了', route)
+        const path = route.key
+        navigate(path)
+    }
+点击当前菜单，实现高亮
+ // 1. 获取当前路由路径，通过提供的useLocation()钩子
+    const location = useLocation()
+    console.log(location.pathname)
+    const selectedkey = location.pathname
+    把selectedkey添加到<Menu />
+Layout展示个人信息，用户信息应该放到哪里？放到redux里面，因为用户信息是全局的，任何地方都可以使用

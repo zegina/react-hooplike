@@ -64,3 +64,6 @@ git branch -M main
 git push -u origin main
 11.安装axios npm install axios 
 12.使用redux 安装 npm install @reduxjs/toolkit 和 npm install redux
+13.layout页面
+14.安装npm install normalize.css 样式初始化 比如在入口文件index.js中引入import 'normalize.css'
+layout二级路由配置,新建article,home,publish文件夹，在router配置

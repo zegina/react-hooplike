@@ -21,3 +21,33 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+1.删除app.css
+2.删除app.test.js 无用的测试文件
+3.删除logo.svg
+4.删除setupTests.js 无用的测试文件
+5.安装scss npm install sass -D  npm install node-sass --save 支持一些原生css不支持的高级语法，比如嵌套，变量使用等，让代码更加高效灵活
+6.安装AntD 文档https://ant.design/docs/react/use-with-create-react-app-cn
+7.配置基础路由router 安装路由包 npm install react-router-dom --save;..........等
+8.配置@别名路径 安装craco 工具包-》增加mcraco.config.js文件-》修改scripts命令-》测试
+npm i @craco/craco -D 安装好后吧原本的npackage.json里的"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },替换为"scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },重启项目
+9.vscode提示配置
+在项目根目录创建jsconfig.json配置文件，添加以下配置
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    }
+}
+10.使用gitee管理项目

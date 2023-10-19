@@ -9,11 +9,11 @@ import 'normalize.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>// 严格模式 有这个<React.StrictMode>富文本会渲染两次，publish页面会出现两个富文本
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // 下面是新建项目时的默认代码

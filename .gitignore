@@ -83,3 +83,4 @@ Layout退出登录实现
 Layout处理token失效。与后端配合，通常token失效后再去请求接口，接口会返回401，前端拦截到401后，跳转到登录页
 在响应拦截器监控401状态码，如果是401，清除失效token,跳转到登录页
 使用Home-Echarts基础图表 安装npm install echarts,封装echarts组件,方便复用
+15安装富文本编辑器 npm install react-quill@2.0.0-beta.2 报错再继续安装npm install react-quill@2.0.0-beta.2 --legacy-peer-deps

@@ -15,23 +15,26 @@ import { Link } from 'react-router-dom'
 import './index.scss'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-import { useState, useEffect } from 'react'
-import { getChannelAPI, createArticleAPI } from '@/apis/article'
+import { useState} from 'react'
+import { createArticleAPI } from '@/apis/article'
+import { useChannel } from '@/hooks/useChannel'
 
 const { Option } = Select
 
 const Publish = () => {
     // 获取频道列表
-    const [channeList, setChanneList] = useState([])
-    useEffect(() => {
-        // 1.封装函数，在函数体内调用接口
-        const getChannelList = async () => {
-            const res = await getChannelAPI()
-            setChanneList(res.data.channels)
-        }
-        // 2.调用函数
-        getChannelList()
-    }, [])
+    // const [channeList, setChanneList] = useState([])
+    // useEffect(() => {
+    //     // 1.封装函数，在函数体内调用接口
+    //     const getChannelList = async () => {
+    //         const res = await getChannelAPI()
+    //         setChanneList(res.data.channels)
+    //     }
+    //     // 2.调用函数
+    //     getChannelList()
+    // }, [])这段代码已经封装到了hooks文件里
+    const { channelList } = useChannel()
+
     // const onFinish = (formValue) => {
     //     console.log(formValue)
     //     // 1. 按照接口文档的格式处理收集到的表单数据
@@ -46,7 +49,7 @@ const Publish = () => {
     //         channel_id: '',
     //     }
     // }
-    // 点击发布文章
+    // 点击发布文章，提交表单
     const onFinish = (formValue) => {
         // 优化，在提交之前判断选择的类型是否与上传的图片数量一致
         if (imageList.length !== imageType) return message.warning('封面类型和图片数量不匹配')
@@ -83,7 +86,7 @@ const Publish = () => {
         console.log('切换封面了', e.target.value)
         setImageType(e.target.value)
     }
-    
+
     return (
         <div className="publish">
             <Card
@@ -115,11 +118,8 @@ const Publish = () => {
                     >
                         <Select placeholder="请选择文章频道" style={{ width: 400 }}>
                             {/* <Option value={0}>推荐</Option> */}
-                            {channeList.map(item => (
-                                <Option key={item.id} value={item.id}>
-                                    {item.name}
-                                </Option>
-                            ))}
+                            {/* value属性用户选中之后会自动收集起来作为接口的提交字段 */}
+                            {channelList.map(item => <Option key={item.id} value={item.id}>{item.name}</Option>)}
                         </Select>
                     </Form.Item>
                     <Form.Item label="封面">

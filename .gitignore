@@ -84,3 +84,6 @@ Layout处理token失效。与后端配合，通常token失效后再去请求接�
 在响应拦截器监控401状态码，如果是401，清除失效token,跳转到登录页
 使用Home-Echarts基础图表 安装npm install echarts,封装echarts组件,方便复用
 15安装富文本编辑器 npm install react-quill@2.0.0-beta.2 报错再继续安装npm install react-quill@2.0.0-beta.2 --legacy-peer-deps
+16.列表页面Article
+关于两个页面都用到了频道，可以使用自定义业务hook=》创建一个use打头的函数，在函数中封装业务逻辑，并return出，组件中要用到的状态数据，组件中导出函数，并解构状态数据使用
+新建hooks文件夹，里面新建useChannel.js，逻辑就写在这里面
